@@ -36,5 +36,5 @@ bash handle.sh ./image
 
 ### push image
 ```bash
-crane push ./image "yourregistry.com/grafana/grafana-sourcemap-less:$1"
+crane push ./image "yourregistry.com/grafana/grafana:8.5.27-sourcemap-less"
 ```
