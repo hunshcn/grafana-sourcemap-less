@@ -80,7 +80,8 @@ modify_layer() {
   mv "$tar_file" "$sha256.tar.gz"
   gunzip "$sha256.tar.gz"
 
-  tar --wildcards --delete '*.js.map' -f "$sha256.tar"
+  # https://bug-tar.gnu.narkive.com/VoHWHxhd/delete-append-corruption-on-busybox-tarfiles
+  tar --wildcards --delete '*.js.map' -f "$sha256.tar" --blocking-factor 2
   diff_sha256=$(sum "$sha256.tar")
   gzip "$sha256.tar"
 
